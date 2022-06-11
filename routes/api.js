@@ -175,23 +175,6 @@ Akhir Pesan Error
 
 router.use(favicon(__path + "/views/favicon.ico"));
 
-const listkey = ["ekagans", "danugans"]
-
-router.post("/apikey", async (req, res, next) => {
-  const key = req.query.key
-  if(listkey.includes(key)) {
-    res.json({
-      message: 'apikey sudah terdaftar'
-    })
-  } else {
-    listkey.push(key)
-    res.json({
-      message: `berhasil mendaftarkan ${key} Kedatabase apikey`
-    })
-  }
-})
-
-
 router.get('/music/joox', async(req, res, next) => {
   const query = req.query.query;
   const apikey = req.query.apikey;
