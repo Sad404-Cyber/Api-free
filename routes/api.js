@@ -175,37 +175,22 @@ Akhir Pesan Error
 
 router.use(favicon(__path + "/views/favicon.ico"));
 
-const listkey = ["ekagans", "danugans"];
+const listkey = ["ekagans", "danugans"]
 
 router.post("/apikey", async (req, res, next) => {
-  const key = req.query.key;
+  const key = req.query.key
   if(listkey.includes(key)) {
     res.json({
       message: 'apikey sudah terdaftar'
-    });
+    })
   } else {
-    listkey.push(key);
+    listkey.push(key)
     res.json({
       message: `berhasil mendaftarkan ${key} Kedatabase apikey`
-    });
+    })
   }
-});
+})
 
-// delete apikey
-
-router.delete("/apikey", async(req, res, next) => {
-	const key = req.query.delete;
-	if(listkey.includes(key)) {
-		res.json({
-			message: 'apikey tidak ada sebelumnya'
-			})
-			} else {
-	listkey.splice(key, 1)
-	res.json({
-		message: 'apikey berhasil dihapus' 
-});
- }
-});
 
 router.get('/music/joox', async(req, res, next) => {
   const query = req.query.query;
